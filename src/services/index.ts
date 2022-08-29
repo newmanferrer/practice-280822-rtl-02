@@ -1,1 +1,1 @@
-export { getAllSeriesFetch, getAllSeriesAxios } from './series/series';
+export { getAllSeriesFetch, getAllSeriesAxios, createSerieFetch } from './series/series';

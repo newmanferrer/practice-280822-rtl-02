@@ -22,6 +22,21 @@ export const getAllSeriesFetch = async (): Promise<ISerie[]> => {
   }
 };
 
+export const createSerieFetch = async (serie: ISerie) => {
+  try {
+    const response = await fetch(allSeries, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(serie)
+    });
+    return response;
+  } catch (error: any) {
+    throw new NetworkError(error.message);
+  }
+};
+
 //* AXIOS
 export const getAllSeriesAxios = async (): Promise<ISerie[]> => {
   try {
