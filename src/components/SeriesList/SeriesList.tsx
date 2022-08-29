@@ -13,5 +13,9 @@ export const SeriesList = () => {
       .catch(error => console.log(error));
   }, []);
 
-  return <ListWrapper>{series && series.map(serie => <SerieCard serie={serie} />)}</ListWrapper>;
+  return (
+    <ListWrapper>
+      {series && series.map(serie => <SerieCard key={serie.id} serie={serie} />)}
+    </ListWrapper>
+  );
 };
