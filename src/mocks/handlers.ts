@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
 export const handlers = [
-  rest.get('https://peticiones.online/api/series', (req, res, ctx) => {
+  rest.get('https://peticiones.online/api/series', (_req, res, ctx) => {
     return res(
       ctx.json([
         {
@@ -33,5 +33,8 @@ export const handlers = [
         }
       ])
     );
+  }),
+  rest.post('https://peticiones.online/api/series', (req, res, ctx) => {
+    return res(ctx.json({ success: true }));
   })
 ];
