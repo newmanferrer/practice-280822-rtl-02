@@ -22,7 +22,7 @@ const initialStateForm: ISerie = {
 };
 
 export const SeriesForm = () => {
-  const { form, handleChange } = useForm(initialStateForm);
+  const { form, setForm, handleChange } = useForm(initialStateForm);
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
@@ -36,7 +36,8 @@ export const SeriesForm = () => {
     createSerieFetch(form)
       .then(response => response.json())
       .then(json => setSuccess(true))
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(() => setForm(initialStateForm));
   };
 
   return (
@@ -48,9 +49,10 @@ export const SeriesForm = () => {
             type='text'
             required
             id='inputTitle'
-            name='inputTitle'
+            name='title'
             value={form.title}
             placeholder='serie title'
+            autoComplete='off'
             onChange={handleChange}
           />
         </LabelInputWrapper>
@@ -61,9 +63,10 @@ export const SeriesForm = () => {
             type='text'
             required
             id='inputCreator'
-            name='inputCreator'
+            name='creator'
             value={form.creator}
             placeholder='serie creator'
+            autoComplete='off'
             onChange={handleChange}
           />
         </LabelInputWrapper>
@@ -72,9 +75,8 @@ export const SeriesForm = () => {
           <LabelStyled htmlFor='inputRating'>Ratin</LabelStyled>
           <InputStyled
             type='number'
-            required
             id='inputRating'
-            name='inputRating'
+            name='rating'
             value={form.rating}
             placeholder='serie rating'
             onChange={handleChange}
@@ -85,11 +87,11 @@ export const SeriesForm = () => {
           <LabelStyled htmlFor='inputDates'>Dates</LabelStyled>
           <InputStyled
             type='text'
-            required
             id='inputDates'
-            name='inputDates'
+            name='dates'
             value={form.dates}
             placeholder='serie dates'
+            autoComplete='off'
             onChange={handleChange}
           />
         </LabelInputWrapper>
@@ -98,11 +100,11 @@ export const SeriesForm = () => {
           <LabelStyled htmlFor='inputImage'>Image</LabelStyled>
           <InputStyled
             type='text'
-            required
             id='inputImage'
-            name='inputImage'
+            name='image'
             value={form.image}
-            placeholder='serie image'
+            placeholder='serie image url'
+            autoComplete='off'
             onChange={handleChange}
           />
         </LabelInputWrapper>
@@ -111,17 +113,16 @@ export const SeriesForm = () => {
           <LabelStyled htmlFor='inputChannel'>Channel</LabelStyled>
           <InputStyled
             type='text'
-            required
             id='inputChannel'
-            name='inputChannel'
+            name='channel'
             value={form.channel}
             placeholder='serie channel'
+            autoComplete='off'
             onChange={handleChange}
           />
         </LabelInputWrapper>
 
         <ButtonsWrapper>
-          <ButtonStyled type='reset'>Clear</ButtonStyled>
           <ButtonStyled type='submit'>Create Serie</ButtonStyled>
         </ButtonsWrapper>
       </FormStyled>
