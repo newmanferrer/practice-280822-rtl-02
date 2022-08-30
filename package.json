@@ -57,7 +57,7 @@
     ],
     "transform": {
       "\\.[jt]sx?$": "ts-jest",
-      "^.+\\.(svg)$": "<rootDir>/svgTransform.cjs"
+      "^.+\\.(svg|png)$": "<rootDir>/svgTransform.cjs"
     },
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
