@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import { useForm } from '../../hooks';
+import { Message } from '../';
 import { createSerieFetch } from '../../services';
 import { ISerie } from '../../models';
 import {
@@ -35,7 +36,10 @@ export const SeriesForm = () => {
 
     createSerieFetch(form)
       .then(response => response.json())
-      .then(json => setSuccess(true))
+      .then(json => {
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 2000);
+      })
       .catch(error => console.log(error))
       .finally(() => setForm(initialStateForm));
   };
@@ -126,6 +130,8 @@ export const SeriesForm = () => {
           <ButtonStyled type='submit'>Create Serie</ButtonStyled>
         </ButtonsWrapper>
       </FormStyled>
+
+      {success && <Message type='success' text='series created successfully' />}
     </FormWrapper>
   );
 };
