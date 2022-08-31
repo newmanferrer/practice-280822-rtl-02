@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { ISerie } from '../../models';
 
-const baseURL = ' https://peticiones.online/api';
+const baseURL = 'https://peticiones.online/api';
 const allSeries = `${baseURL}/series`;
 
 class NetworkError extends Error {
