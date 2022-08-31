@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import 'jest-styled-components';
+import 'whatwg-fetch';
 import { server } from './src/mocks/server';
 
 //* Establish API mocking before all tests.
