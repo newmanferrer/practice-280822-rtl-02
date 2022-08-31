@@ -1,8 +1,10 @@
 import { rest } from 'msw';
+import { ISerie } from '../models';
 
 export const handlers = [
-  rest.get('https://peticiones.online/api/series', (_req, res, ctx) => {
+  rest.get<ISerie[]>('https://peticiones.online/api/series', (_req, res, ctx) => {
     return res(
+      ctx.status(200),
       ctx.json([
         {
           id: 1,
@@ -34,7 +36,7 @@ export const handlers = [
       ])
     );
   }),
-  rest.post('https://peticiones.online/api/series', (req, res, ctx) => {
-    return res(ctx.json({ success: true }));
+  rest.post('https://peticiones.online/api/series', (_req, res, ctx) => {
+    return res(ctx.status(201), ctx.json({ success: true }));
   })
 ];
