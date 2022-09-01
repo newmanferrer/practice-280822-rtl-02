@@ -1,1 +1,6 @@
-export { getAllSeriesFetch, getAllSeriesAxios, createSerieFetch } from './series/series';
+export {
+  getAllSeriesFetch,
+  getAllSeriesAxios,
+  createSerieFetch,
+  createSerieAxios
+} from './series/series';
