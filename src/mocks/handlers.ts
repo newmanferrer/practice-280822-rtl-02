@@ -36,7 +36,18 @@ export const handlers = [
       ])
     );
   }),
-  rest.post('https://peticiones.online/api/series', (_req, res, ctx) => {
-    return res(ctx.status(201), ctx.json({ success: true }));
+  rest.post<ISerie>('https://peticiones.online/api/series', (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        id: 19,
+        title: 'My serie title',
+        creator: 'My serie creator',
+        rating: 10,
+        dates: 'My serie dates',
+        image: 'My serie image url',
+        channel: 'My serie channel'
+      })
+    );
   })
 ];
