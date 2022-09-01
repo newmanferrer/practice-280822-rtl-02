@@ -24,29 +24,28 @@ const initialStateForm: ISerie = {
 
 export const SeriesForm = () => {
   const { form, setForm, handleChange } = useForm(initialStateForm);
-  const [success, setSuccess] = useState(false);
+  const [serieCreated, setSerieCreated] = useState<ISerie | null>(null);
 
   const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (form.title === '' || form.creator === '' || form.channel === '') {
+    if (form.title === '' || form.creator === '') {
       alert('incomplete or error fields');
       return;
     }
 
     createSerieFetch(form)
-      .then(response => response.json())
-      .then(json => {
-        setSuccess(true);
-        setTimeout(() => setSuccess(false), 2000);
-      })
+      .then(data => setSerieCreated(data))
       .catch(error => console.log(error))
-      .finally(() => setForm(initialStateForm));
+      .finally(() => {
+        setForm(initialStateForm);
+        setTimeout(() => setSerieCreated(null), 2000);
+      });
   };
 
   return (
     <FormWrapper>
-      <FormStyled onSubmit={handleSubmit}>
+      <FormStyled aria-label='seriesForm' onSubmit={handleSubmit}>
         <LabelInputWrapper>
           <LabelStyled htmlFor='inputTitle'>Title</LabelStyled>
           <InputStyled
@@ -131,7 +130,15 @@ export const SeriesForm = () => {
         </ButtonsWrapper>
       </FormStyled>
 
-      {success && <Message type='success' text='series created successfully' />}
+      {serieCreated && (
+        <Message
+          type='success'
+          text={`serie "${serieCreated.title}", created successfully`}
+          role='divMessageSuccess'
+          ariaLabel='messageSuccess'
+          dataTestid='messageSuccess'
+        />
+      )}
     </FormWrapper>
   );
 };
