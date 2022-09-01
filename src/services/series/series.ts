@@ -22,7 +22,7 @@ export const getAllSeriesFetch = async (): Promise<ISerie[]> => {
   }
 };
 
-export const createSerieFetch = async (serie: ISerie) => {
+export const createSerieFetch = async (serie: ISerie): Promise<ISerie> => {
   try {
     const response = await fetch(allSeries, {
       method: 'POST',
@@ -31,7 +31,8 @@ export const createSerieFetch = async (serie: ISerie) => {
       },
       body: JSON.stringify(serie)
     });
-    return response;
+    const data: ISerie = await response.json();
+    return data;
   } catch (error: any) {
     throw new NetworkError(error.message);
   }
@@ -41,6 +42,15 @@ export const createSerieFetch = async (serie: ISerie) => {
 export const getAllSeriesAxios = async (): Promise<ISerie[]> => {
   try {
     const { data }: AxiosResponse<ISerie[], ISerie[]> = await axios.get(allSeries);
+    return data;
+  } catch (error: any) {
+    throw new NetworkError(error.message);
+  }
+};
+
+export const createSerieAxios = async (serie: ISerie) => {
+  try {
+    const { data }: AxiosResponse<ISerie, ISerie> = await axios.post(allSeries, serie);
     return data;
   } catch (error: any) {
     throw new NetworkError(error.message);
