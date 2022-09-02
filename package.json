@@ -12,13 +12,15 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@material-ui/core": "4.12.4",
+    "@material-ui/data-grid": "4.0.0-alpha.37",
     "@types/react-router-dom": "5.3.3",
     "@types/styled-components": "5.1.26",
     "axios": "0.27.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.3.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "5.3.5"
   },
   "devDependencies": {
     "@babel/core": "7.18.13",
