@@ -9,34 +9,37 @@ jest.mock('@material-ui/data-grid', () => ({
 
 const mockedDataGrid = jest.mocked(DataGrid);
 
-describe('My Component', () => {
+describe('Example2', () => {
   beforeEach(() => {
     mockedDataGrid.mockClear();
   });
 
   it('test #1.1: should renders mateial-ui grid with columnDefs and rowData', () => {
-    const myOnMoney = () => {
+    const mockOnMoney = () => {
       console.log('clicked');
     };
-    render(<Example2 onMoney={myOnMoney} />);
+
+    render(<Example2 onMoney={mockOnMoney} />);
     fireEvent.click(screen.getByRole('button', { name: /^Give me 33 dollars$/ }));
   });
 
   it('test #1.2: should renders mateial-ui grid with columnDefs and rowData', done => {
-    const myOnMoney = (n: number) => {
+    const mockOnMoney = (n: number) => {
       expect(n).toBe(33);
       done();
     };
-    render(<Example2 onMoney={myOnMoney} />);
+
+    render(<Example2 onMoney={mockOnMoney} />);
     fireEvent.click(screen.getByRole('button', { name: /^Give me 33 dollars$/ }));
   });
 
   it('test #1.3: should renders mateial-ui grid with columnDefs and rowData', () => {
-    const myOnMoney = jest.fn();
-    render(<Example2 onMoney={myOnMoney} />);
+    const mockOnMoney = jest.fn();
+    render(<Example2 onMoney={mockOnMoney} />);
+
     fireEvent.click(screen.getByRole('button', { name: /^Give me 33 dollars$/ }));
-    expect(myOnMoney).toHaveBeenCalledTimes(1);
-    expect(myOnMoney).toHaveBeenCalledWith(33);
+    expect(mockOnMoney).toHaveBeenCalledTimes(1);
+    expect(mockOnMoney).toHaveBeenCalledWith(33);
   });
 
   it('test #2: should renders table passing the expected props', () => {
