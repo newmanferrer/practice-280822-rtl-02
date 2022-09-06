@@ -2,6 +2,7 @@ export { GlobalStyles } from './GlobalStyles/GlobalStyles';
 export { Navbar } from './Navbar/Navbar';
 export { Header } from './Header/Header';
 export { Footer } from './Footer/Footer';
+export { Loader } from './Loader/Loader';
 export { Message } from './Message/Message';
 export { SeriesList } from './SeriesList/SeriesList';
 export { SerieCard } from './SerieCard/SerieCard';

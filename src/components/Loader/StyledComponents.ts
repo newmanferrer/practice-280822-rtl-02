@@ -44,8 +44,7 @@ const LoaderWrapper = styled(Container)`
 //* 4.2.- LoaderStyled
 //* ---------------------------------------------------------------------------
 const LoaderStyled = styled.img.attrs({
-  src: `${spinner}`,
-  alt: 'Loading...'
+  src: `${spinner}`
 })`
   text-align: center;
   margin-bottom: 1rem;
