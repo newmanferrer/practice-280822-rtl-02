@@ -4,6 +4,7 @@ import { ISerie } from '../models';
 export const handlers = [
   rest.get<ISerie[]>('https://peticiones.online/api/series', (_req, res, ctx) => {
     return res(
+      ctx.delay(),
       ctx.status(200),
       ctx.json([
         {
@@ -38,6 +39,7 @@ export const handlers = [
   }),
   rest.post<ISerie>('https://peticiones.online/api/series', (_req, res, ctx) => {
     return res(
+      ctx.delay(),
       ctx.status(200),
       ctx.json({
         id: 19,
