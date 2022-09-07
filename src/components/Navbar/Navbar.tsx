@@ -7,6 +7,7 @@ export const Navbar = () => {
       <NavLinkStyled to='/series'>Series</NavLinkStyled>
       <NavLinkStyled to='/example2'>Example2</NavLinkStyled>
       <NavLinkStyled to='/example3'>Example3</NavLinkStyled>
+      <NavLinkStyled to='/formik'>Formik</NavLinkStyled>
     </NavStyled>
   );
 };
