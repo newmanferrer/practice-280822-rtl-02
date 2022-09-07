@@ -8,7 +8,8 @@ import {
   H3Styled,
   PStyled,
   AStyled,
-  LinkStyled
+  LinkStyled,
+  SpanStyled
 } from './StyledComponents';
 
 export const HomePage = () => {
@@ -37,7 +38,32 @@ export const HomePage = () => {
             <H3Styled>1.- Series for example</H3Styled>
           </HeaderStyled>
           <PStyled>
-            Go to <LinkStyled to='/series'>series page</LinkStyled>, to learn all about MSW.
+            Go to <LinkStyled to='/series'>series page</LinkStyled>, to learn about MSW.
+          </PStyled>
+        </SectionStyled>
+
+        <SectionStyled>
+          <HeaderStyled>
+            <H3Styled>2.- Mocking React Components and Functions using Jest</H3Styled>
+            <PStyled>
+              In the route <SpanStyled>src/examples</SpanStyled> , there are four examples that we
+              can study to understand how we can implement mocks using jest.
+            </PStyled>
+          </HeaderStyled>
+          <PStyled>
+            Go to <LinkStyled to='/example2'>example2 page</LinkStyled> (mock grid example).
+          </PStyled>
+          <PStyled>
+            Go to <LinkStyled to='/example3'>example3 page</LinkStyled> (mock drawer example).
+          </PStyled>
+        </SectionStyled>
+
+        <SectionStyled>
+          <HeaderStyled>
+            <H3Styled>3.- Form tests implemented with formik</H3Styled>
+          </HeaderStyled>
+          <PStyled>
+            Go to <LinkStyled to='/formik'>formik page</LinkStyled>.
           </PStyled>
         </SectionStyled>
       </MainStyled>
