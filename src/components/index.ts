@@ -7,3 +7,4 @@ export { Message } from './Message/Message';
 export { SeriesList } from './SeriesList/SeriesList';
 export { SerieCard } from './SerieCard/SerieCard';
 export { SeriesForm } from './SeriesForm/SeriesForm';
+export { MultiStepForm } from './MultiStepForm/MultiStepForm';
