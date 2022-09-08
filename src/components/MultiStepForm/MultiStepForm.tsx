@@ -165,7 +165,10 @@ export function FormikStep({ children }: FormikStepProps) {
   return <>{children}</>;
 }
 
-export function FormikStepper<MyFormValues>({ children, ...props }: FormikConfig<MyFormValues>) {
+export function FormikStepper<MyFormValues extends FormikValues>({
+  children,
+  ...props
+}: FormikConfig<MyFormValues>) {
   const childrenArray = React.Children.toArray(children) as React.ReactElement<FormikStepProps>[];
   const [step, setStep] = useState(0);
   const currentChild = childrenArray[step];
