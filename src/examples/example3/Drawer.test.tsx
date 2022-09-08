@@ -7,7 +7,7 @@ jest.mock('@material-ui/core', () => ({
   SwipeableDrawer: jest.fn(() => <div>HELLOOOOOO!!!</div>)
 }));
 
-describe('Drawer', () => {
+describe('Test Drawer Component', () => {
   it('test #1: should no show "Hello World!", in the document', () => {
     render(<Drawer />);
     expect(screen.queryByText(/^HELLOOOOOO!!!$/)).toBeInTheDocument();

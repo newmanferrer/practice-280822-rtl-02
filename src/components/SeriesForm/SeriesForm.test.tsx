@@ -3,10 +3,10 @@ import {
   screen,
   RenderResult,
   waitFor,
-  waitForElementToBeRemoved
+  waitForElementToBeRemoved,
+  act
 } from '@testing-library/react';
 import user from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 import { SeriesForm } from '..';
 
 describe('Test SeriesForm Component', () => {

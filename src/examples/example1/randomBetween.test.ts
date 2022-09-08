@@ -1,10 +1,10 @@
-import { randomBetween } from '../';
+import { randomBetween } from '..';
 
 // jest.spyOn(Math, 'random').mockReturnValue(0.5);
 const randomSpy = jest.spyOn(Math, 'random');
 
-describe('randomBetween', () => {
-  describe('when Math.random() returns 0', () => {
+describe('Test randomBetween function', () => {
+  describe('Test when Math.random() returns 0', () => {
     beforeEach(() => {
       randomSpy.mockClear().mockReturnValue(0);
     });
@@ -16,7 +16,7 @@ describe('randomBetween', () => {
     });
   });
 
-  describe('when Math.random() returns 0.5', () => {
+  describe('Test when Math.random() returns 0.5', () => {
     beforeEach(() => {
       // randomSpy.mockClear().mockReturnValue(0.5);
       randomSpy.mockClear().mockImplementation(() => 0.5);
@@ -29,7 +29,7 @@ describe('randomBetween', () => {
     });
   });
 
-  describe('when Math.random() returns 0.999999', () => {
+  describe('Test when Math.random() returns 0.999999', () => {
     beforeEach(() => {
       randomSpy.mockClear().mockReturnValue(1);
     });

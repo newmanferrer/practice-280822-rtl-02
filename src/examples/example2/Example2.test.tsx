@@ -9,7 +9,7 @@ jest.mock('@material-ui/data-grid', () => ({
 
 const mockedDataGrid = jest.mocked(DataGrid);
 
-describe('Example2', () => {
+describe('Test Example2 Component', () => {
   beforeEach(() => {
     mockedDataGrid.mockClear();
   });
